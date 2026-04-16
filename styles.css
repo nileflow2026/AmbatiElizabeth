@@ -1,0 +1,167 @@
+/* ============================================================
+   Ambati Elizabeth Portfolio — styles.css
+   Custom design tokens, base styles, and component overrides.
+   Tailwind CDN (loaded in index.html) provides utility classes.
+   Theme: Brown & Beige
+   ============================================================ */
+
+/* ── 1. CSS Custom Properties (RGB channels for opacity support) ── */
+
+:root,
+[data-theme="light"] {
+  --parchment: 245 237 224; /* #F5EDE0  warm beige           */
+  --parchment-mid: 232 220 202; /* #E8DCCA  mid beige            */
+  --ink: 62 38 18; /* #3E2612  deep brown           */
+  --ink-body: 99 65 36; /* #634124  medium brown         */
+  --ink-muted: 152 118 84; /* #987654  muted warm brown     */
+  --tan: 160 82 45; /* #A0522D  sienna / accent brown*/
+  --border: 210 191 168; /* #D2BFA8  beige border         */
+}
+
+[data-theme="dark"] {
+  --parchment: 42 26 12; /* #2A1A0C  dark espresso        */
+  --parchment-mid: 62 40 20; /* #3E2814  slightly lighter     */
+  --ink: 245 237 224; /* #F5EDE0  light beige text     */
+  --ink-body: 220 200 175; /* #DCC8AF  warm light body      */
+  --ink-muted: 152 118 84; /* #987654  muted warm brown     */
+  --tan: 196 130 74; /* #C4824A  lighter sienna       */
+  --border: 80 52 28; /* #50341C  dark warm border     */
+}
+
+/* ── 2. Base ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--parchment));
+  color: rgb(var(--ink));
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── 3. Accessibility — Skip Link ── */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 0.5rem 1rem;
+  background: rgb(var(--ink));
+  color: rgb(var(--parchment));
+  font-size: 0.875rem;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── 4. Editorial Prose ── */
+
+.editorial-prose p {
+  color: rgb(var(--ink-body));
+  line-height: 1.75;
+}
+
+.editorial-prose p + p {
+  margin-top: 1.5rem;
+}
+
+/* ── 5. Dark mode — photo frame override ── */
+/* On dark theme the hero photo frame becomes parchment-mid instead of pure white */
+
+[data-theme="dark"] .dark\:bg-white {
+  background-color: rgb(var(--parchment-mid));
+}
+
+/* ── 6. Theme toggle button ── */
+
+.theme-toggle {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: rgb(var(--ink));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgb(var(--parchment-mid));
+}
+
+/* ── 7. Nav backdrop blur fallback ── */
+
+nav {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* ── 8. Selection colours ── */
+
+.selection\:bg-tan ::-moz-selection,
+.selection\:bg-tan::selection,
+.selection\:bg-tan *::selection {
+  background-color: rgb(var(--tan));
+  color: rgb(var(--ink));
+}
+
+/* ── 9. Mini-bits cards — ensure white background works in dark mode ── */
+
+[data-theme="dark"] .bg-white {
+  background-color: rgb(var(--parchment-mid));
+}
+
+/* ── 10. Footer — ink background ── */
+
+footer {
+  background-color: rgb(var(--ink));
+  color: rgb(var(--parchment));
+}
+
+/* ── 11. Responsive nav ── */
+
+@media (max-width: 1023px) {
+  .lg\:hidden {
+    display: block;
+  }
+}
+
+/* ── 12. Smooth image hover — grayscale ── */
+
+.hover\:grayscale:hover {
+  filter: grayscale(100%);
+}
+
+.transition-all {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}

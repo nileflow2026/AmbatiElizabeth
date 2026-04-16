@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ["selector", "[data-theme='dark']"],
+        theme: {
+          extend: {
+            colors: {
+              parchment: {
+                DEFAULT: "rgb(var(--parchment) / <alpha-value>)",
+                mid: "rgb(var(--parchment-mid) / <alpha-value>)",
+              },
+              ink: {
+                DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+                body: "rgb(var(--ink-body) / <alpha-value>)",
+                muted: "rgb(var(--ink-muted) / <alpha-value>)",
+              },
+              tan: "rgb(var(--tan) / <alpha-value>)",
+              border: "rgb(var(--border) / <alpha-value>)",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            fontSize: {
+              display: [
+                "clamp(2.25rem, 5vw, 4rem)",
+                { lineHeight: "1.1", letterSpacing: "-0.02em" },
+              ],
+              headline: ["clamp(2rem, 3.5vw, 3rem)", { lineHeight: "1.15" }],
+              subheading: [
+                "clamp(1.25rem, 2vw, 1.5rem)",
+                { lineHeight: "1.3" },
+              ],
+              body: ["1rem", { lineHeight: "1.75" }],
+              label: ["0.75rem", { lineHeight: "1", letterSpacing: "0.1em" }],
+              caption: ["0.6875rem", { lineHeight: "1.4" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Portfolio Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>About — Ambati Elizabeth</title>
+    <meta
+      name="description"
+      content="Digital storyteller blending creativity with purpose. Digital Marketing Lead and Beauty Therapist."
+    />
+    <link rel="shortcut icon" href="/memo-3d.png" />
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const theme = stored === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body class="font-sans bg-parchment text-ink">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="flex min-h-screen flex-col">
+      <!-- ── Nav ── -->
+      <nav
+        class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 border-border bg-parchment backdrop-blur-md"
+      >
+        <div
+          class="max-w-7xl mx-auto h-20 px-6 flex justify-between items-center"
+        >
+          <a
+            class="font-serif text-xl tracking-tight text-ink"
+            href="index.html"
+            >Ambati Elizabeth</a
+          >
+          <div class="hidden lg:flex items-center space-x-8">
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="photography.html"
+              >Photography</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="videography.html"
+              >Video</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="mini-bits.html"
+              >Mini-bits</a
+            >
+            <a
+              class="text-label text-tan border-b border-tan pb-0.5"
+              href="about.html"
+              >About</a
+            >
+            <button
+              aria-label="Toggle theme"
+              id="theme-toggle"
+              class="theme-toggle group inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ease-out text-ink hover:bg-parchment-mid"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="h-4 w-4 rounded-full border border-current transition-colors duration-200 bg-transparent"
+              ></span>
+            </button>
+          </div>
+          <!-- Mobile menu button -->
+          <button
+            aria-expanded="false"
+            aria-label="Open menu"
+            id="mobile-menu-btn"
+            class="lg:hidden text-ink"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-border bg-parchment px-6 py-6 space-y-4"
+        >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="photography.html"
+            >Photography</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="videography.html"
+            >Video</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="mini-bits.html"
+            >Mini-bits</a
+          >
+          <a class="block text-label text-tan" href="about.html">About</a>
+        </div>
+      </nav>
+
+      <main id="main-content" class="flex-1 pt-20">
+        <!-- ── Hero Banner ── -->
+        <section class="bg-parchment-mid py-24 relative overflow-hidden">
+          <div
+            class="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-5"
+          >
+            <span
+              class="font-serif text-[20vw] leading-none tracking-tighter text-ink"
+              >About</span
+            >
+          </div>
+          <div class="max-w-7xl mx-auto px-6 relative">
+            <span class="text-label text-tan mb-4 block">The Storyteller</span>
+            <h1 class="text-display font-serif text-ink">Ambati Elizabeth</h1>
+          </div>
+        </section>
+
+        <!-- ── Main About ── -->
+        <section class="py-24 bg-parchment">
+          <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <!-- Photo -->
+              <div class="relative">
+                <div
+                  class="aspect-[3/4] overflow-hidden bg-parchment-mid shadow-2xl"
+                >
+                  <img
+                    src="images/AmbatiElizabeth.jpeg"
+                    alt="Ambati Elizabeth"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <!-- Floating label -->
+                <div
+                  class="absolute bottom-8 -right-4 bg-parchment p-4 border border-border shadow-md hidden lg:block"
+                >
+                  <p
+                    class="text-caption text-ink-muted uppercase tracking-widest"
+                  >
+                    Based in
+                  </p>
+                  <p class="text-label text-ink">Nairobi, Kenya</p>
+                </div>
+              </div>
+
+              <!-- Text -->
+              <div class="lg:pt-8">
+                <span class="text-label text-tan mb-4 block">Who I am</span>
+                <h2 class="text-headline font-serif text-ink mb-8">
+                  Creativity <span class="italic">with purpose.</span>
+                </h2>
+                <div class="editorial-prose space-y-6">
+                  <p class="text-body text-ink-body">
+                    I'm Ambati Elizabeth, a digital storyteller blending
+                    creativity with purpose. As a Digital Marketing Lead and
+                    Beauty Therapist, I bring ideas to life with a human touch.
+                  </p>
+                  <p class="text-body text-ink-body">
+                    My passion lies in multimedia storytelling, whether through
+                    documentary work on social issues like cyberbullying or
+                    creative projects that connect people. I believe in keeping
+                    things clear, engaging, and authentic, so every project
+                    feels both professional and personal.
+                  </p>
+                </div>
+
+                <!-- Skills / Tags -->
+                <div class="mt-10 flex flex-wrap gap-3">
+                  <span
+                    class="text-caption uppercase tracking-widest px-4 py-2 border border-border text-ink-muted"
+                    >Digital Marketing</span
+                  >
+                  <span
+                    class="text-caption uppercase tracking-widest px-4 py-2 border border-border text-ink-muted"
+                    >Multimedia Storytelling</span
+                  >
+                  <span
+                    class="text-caption uppercase tracking-widest px-4 py-2 border border-border text-ink-muted"
+                    >Documentary</span
+                  >
+                  <span
+                    class="text-caption uppercase tracking-widest px-4 py-2 border border-border text-ink-muted"
+                    >Beauty Therapy</span
+                  >
+                  <span
+                    class="text-caption uppercase tracking-widest px-4 py-2 border border-border text-ink-muted"
+                    >Photography</span
+                  >
+                  <span
+                    class="text-caption uppercase tracking-widest px-4 py-2 border border-border text-ink-muted"
+                    >Video</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── What I Do ── -->
+        <section class="py-24 bg-parchment-mid">
+          <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+              <span class="text-label text-tan mb-2 block">Expertise</span>
+              <h2 class="text-headline font-serif text-ink">What I Do</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="bg-parchment p-8 border border-border">
+                <div
+                  class="w-10 h-10 border border-tan flex items-center justify-center mb-6"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-tan"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"
+                    ></path>
+                    <circle cx="12" cy="13" r="3"></circle>
+                  </svg>
+                </div>
+                <h3 class="text-subheading font-serif text-ink mb-4">
+                  Multimedia Storytelling
+                </h3>
+                <p class="text-body text-ink-body">
+                  From photography to documentary film, I craft visual
+                  narratives that give voice to stories that matter — especially
+                  on social issues like cyberbullying and community identity.
+                </p>
+              </div>
+
+              <div class="bg-parchment p-8 border border-border">
+                <div
+                  class="w-10 h-10 border border-tan flex items-center justify-center mb-6"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-tan"
+                    aria-hidden="true"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <h3 class="text-subheading font-serif text-ink mb-4">
+                  Digital Marketing
+                </h3>
+                <p class="text-body text-ink-body">
+                  As a Digital Marketing Lead, I develop campaigns that are
+                  clear, engaging, and authentic. Strategy meets creativity to
+                  build brands that genuinely connect with their audience.
+                </p>
+              </div>
+
+              <div class="bg-parchment p-8 border border-border">
+                <div
+                  class="w-10 h-10 border border-tan flex items-center justify-center mb-6"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-tan"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 20h9"></path>
+                    <path
+                      d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="text-subheading font-serif text-ink mb-4">
+                  Creative Writing
+                </h3>
+                <p class="text-body text-ink-body">
+                  Through opinion pieces, personal essays and micro-fiction, I
+                  explore the everyday with intention — keeping every word
+                  clear, human, and purposeful.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Values ── -->
+        <section class="py-24 bg-parchment">
+          <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+              <span class="text-label text-tan mb-2 block">Principles</span>
+              <h2 class="text-headline font-serif text-ink">
+                What I Believe In
+              </h2>
+            </div>
+            <div class="space-y-0">
+              <div
+                class="py-10 border-b border-border flex flex-col md:flex-row md:items-start gap-6"
+              >
+                <span class="text-label text-tan w-32 shrink-0 pt-1"
+                  >Authenticity</span
+                >
+                <p class="text-body text-ink-body">
+                  Every project should feel real. Whether it's a brand campaign
+                  or a documentary, the human element is never an afterthought —
+                  it's the whole point.
+                </p>
+              </div>
+              <div
+                class="py-10 border-b border-border flex flex-col md:flex-row md:items-start gap-6"
+              >
+                <span class="text-label text-tan w-32 shrink-0 pt-1"
+                  >Clarity</span
+                >
+                <p class="text-body text-ink-body">
+                  Complex ideas deserve simple, honest communication. I strip
+                  away the noise to find the clearest, most engaging way to tell
+                  a story.
+                </p>
+              </div>
+              <div
+                class="py-10 border-b border-border flex flex-col md:flex-row md:items-start gap-6"
+              >
+                <span class="text-label text-tan w-32 shrink-0 pt-1"
+                  >Purpose</span
+                >
+                <p class="text-body text-ink-body">
+                  Creativity without purpose is decoration. I want every piece
+                  of work to leave the audience a little more informed, moved,
+                  or inspired than before.
+                </p>
+              </div>
+              <div class="py-10 flex flex-col md:flex-row md:items-start gap-6">
+                <span class="text-label text-tan w-32 shrink-0 pt-1"
+                  >Connection</span
+                >
+                <p class="text-body text-ink-body">
+                  The best stories are shared ones. I'm driven by projects that
+                  bring people together — across screens, communities, and
+                  conversations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Get In Touch CTA ── -->
+        <section class="py-24 bg-parchment-mid">
+          <div class="max-w-3xl mx-auto px-6 text-center">
+            <span class="text-label text-tan mb-4 block"
+              >Let's Work Together</span
+            >
+            <h2 class="text-headline font-serif text-ink mb-6">
+              Have a project in mind?
+            </h2>
+            <p class="text-body text-ink-body mb-10 max-w-xl mx-auto">
+              Whether you're looking for multimedia content, digital marketing
+              strategy, or a fresh creative perspective — I'd love to hear from
+              you.
+            </p>
+            <a
+              href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-3 px-8 py-4 bg-ink text-parchment text-label hover:bg-ink/80 transition-colors duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+              Connect on Instagram
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- ── Footer ── -->
+      <footer class="bg-ink py-20 text-parchment">
+        <div class="mx-auto w-full max-w-7xl px-6">
+          <div
+            class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="lg:col-span-2">
+              <h2 class="mb-6 font-serif text-3xl">Ambati Elizabeth</h2>
+              <p class="mb-8 max-w-sm text-parchment/60">
+                Digital storyteller blending creativity with purpose. Digital
+                Marketing Lead and Beauty Therapist bringing ideas to life with
+                a human touch.
+              </p>
+              <div class="flex flex-wrap gap-6">
+                <a
+                  href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                  aria-label="Instagram"
+                  class="transition-colors hover:text-tan"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      width="20"
+                      height="20"
+                      x="2"
+                      y="2"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Navigation</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="photography.html"
+                    >Photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="videography.html"
+                    >Videography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="writing.html"
+                    >Writing</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="mini-bits.html"
+                    >Mini-bits</a
+                  >
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="about.html"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Connect</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                    class="transition-colors hover:text-tan"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-between border-t border-parchment/10 pt-8 text-caption text-parchment/40 md:flex-row"
+          >
+            <p>© 2026 Ambati Elizabeth. All rights reserved.</p>
+            <p class="mt-4 md:mt-0">Built with intention in Nairobi.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Theme toggle script -->
+    <script>
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.documentElement;
+        const current = html.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", () => {
+          const menu = document.getElementById("mobile-menu");
+          const btn = document.getElementById("mobile-menu-btn");
+          const isOpen = !menu.classList.contains("hidden");
+          menu.classList.toggle("hidden");
+          btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+    </script>
+  </body>
+</html>

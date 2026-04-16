@@ -1,0 +1,952 @@
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="/_next/static/media/7b89a4fd5e90ede0-s.p.woff2"
+      as="font"
+      crossorigin=""
+      type="font/woff2"
+    />
+    <link
+      rel="preload"
+      href="/_next/static/media/e4af272ccee01ff0-s.p.woff2"
+      as="font"
+      crossorigin=""
+      type="font/woff2"
+    />
+    <link rel="preload" as="image" href="images/AmbatiElizabeth.jpeg" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ["selector", "[data-theme='dark']"],
+        theme: {
+          extend: {
+            colors: {
+              parchment: {
+                DEFAULT: "rgb(var(--parchment) / <alpha-value>)",
+                mid: "rgb(var(--parchment-mid) / <alpha-value>)",
+              },
+              ink: {
+                DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+                body: "rgb(var(--ink-body) / <alpha-value>)",
+                muted: "rgb(var(--ink-muted) / <alpha-value>)",
+              },
+              tan: "rgb(var(--tan) / <alpha-value>)",
+              border: "rgb(var(--border) / <alpha-value>)",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            fontSize: {
+              display: [
+                "clamp(2.25rem, 5vw, 4rem)",
+                { lineHeight: "1.1", letterSpacing: "-0.02em" },
+              ],
+              headline: ["clamp(2rem, 3.5vw, 3rem)", { lineHeight: "1.15" }],
+              subheading: [
+                "clamp(1.25rem, 2vw, 1.5rem)",
+                { lineHeight: "1.3" },
+              ],
+              body: ["1rem", { lineHeight: "1.75" }],
+              label: ["0.75rem", { lineHeight: "1", letterSpacing: "0.1em" }],
+              caption: ["0.6875rem", { lineHeight: "1.4" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Portfolio Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preload"
+      as="script"
+      fetchpriority="low"
+      href="/_next/static/chunks/webpack-562fc193856cbd1f.js"
+    />
+    <script
+      src="/_next/static/chunks/fd9d1056-b7d2ccc9acf1b254.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/2117-e0a16f564a614f3c.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/main-app-be3d940aef6bd3eb.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/7757-f07999ff6b01bf69.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/1712-83273b0f0ca29c02.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/2972-ddac6294bade0e15.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/6611-b918b7a43952bc05.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/964-c04c516f7fb4f7e3.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/964-c04c516f7fb4f7e3.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/964-c04c516f7fb4f7e3.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/9969-752d83f33a926dfc.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/app/(site)/layout-127ca17f3e59db9b.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/5878-d658bab7fc5971c4.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/5738-7d69f55ed72e1fc9.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/app/page-c3978f5176bc3a5c.js"
+      async=""
+    ></script>
+    <script
+      src="/_next/static/chunks/app/(site)/not-found-3bbc9526e8e75487.js"
+      async=""
+    ></script>
+    <title>Ambati Elizabeth</title>
+    <meta name="description" content="Journalist. Photographer. Storyteller." />
+    <link rel="canonical" href="https://eliane.studio" />
+    <meta property="og:title" content="Ambati Elizabeth" />
+    <meta
+      property="og:description"
+      content="Journalist. Photographer. Storyteller."
+    />
+    <meta property="og:url" content="https://eliane.studio" />
+    <meta property="og:site_name" content="Ambati Elizabeth" />
+    <meta property="og:image" content="https://eliane.studio/eliane-og.jpeg" />
+    <meta property="og:image:alt" content="Ambati Elizabeth portrait" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ambati Elizabeth" />
+    <meta
+      name="twitter:description"
+      content="Journalist. Photographer. Storyteller."
+    />
+    <meta name="twitter:image" content="https://eliane.studio/eliane-og.jpeg" />
+    <link rel="shortcut icon" href="/memo-3d.png" />
+    <link rel="icon" href="/memo-3d.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/memo-3d.png" />
+    <meta name="next-size-adjust" />
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const theme = stored === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <script
+      src="/_next/static/chunks/polyfills-42372ed130431b0a.js"
+      nomodule=""
+    ></script>
+  </head>
+  <body
+    class="__variable_3eb911 __variable_b6c3be font-sans bg-parchment text-ink"
+  >
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="flex min-h-screen flex-col">
+      <nav
+        class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 border-border bg-parchment backdrop-blur-md"
+      >
+        <div
+          class="max-w-7xl mx-auto h-20 px-6 flex justify-between items-center"
+        >
+          <a class="font-serif text-xl tracking-tight text-ink" href="/"
+            >Ambati Elizabeth</a
+          >
+          <div class="hidden lg:flex items-center space-x-8">
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="photography.html"
+              >Photography</a
+            ><a
+              class="text-label transition-colors hover:text-tan"
+              href="videography.html"
+              >Video</a
+            ><a
+              class="text-label transition-colors hover:text-tan"
+              href="#"
+              >Mini-bits</a
+            ><a
+              class="text-label transition-colors hover:text-tan"
+              href="about.html"
+              >About</a
+            ><button
+              aria-label="Toggle theme"
+              class="theme-toggle group inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ease-out text-ink hover:bg-parchment-mid"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="h-4 w-4 rounded-full border border-current transition-colors duration-200 bg-transparent"
+              ></span>
+            </button>
+          </div>
+          <button
+            aria-expanded="false"
+            aria-label="Open menu"
+            class="lg:hidden text-ink"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu"
+              aria-hidden="true"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <main id="main-content" class="flex-1">
+        <div class="selection:bg-tan selection:text-ink">
+          <section
+            class="relative min-h-screen lg:h-screen w-full flex items-start lg:items-center justify-center overflow-x-hidden lg:overflow-hidden bg-parchment-mid pt-[calc(5rem+env(safe-area-inset-top))] lg:pt-20"
+          >
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0,50 Q25,0 50,50 T100,50"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="0.1"
+                  class="text-ink"
+                ></path>
+              </svg>
+            </div>
+            <div
+              class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative"
+            >
+              <div
+                class="absolute inset-0 flex flex-col justify-center pointer-events-none select-none z-0"
+              >
+                <h1
+                  class="text-[15vw] lg:text-[17vw] xl:text-[12vw] font-serif leading-none text-ink/5 tracking-tighter"
+                  style="opacity: 1; transform: none"
+                >
+                  AMBATI
+                </h1>
+                <h1
+                  class="text-[15vw] lg:text-[17vw] xl:text-[12vw] font-serif leading-none text-ink/5 tracking-tighter self-end"
+                  style="opacity: 1; transform: none"
+                >
+                  ELIZABETH
+                </h1>
+              </div>
+              <div class="mx-auto lg:mx-0 lg:col-span-5 z-10">
+                <div style="opacity: 1; transform: none">
+                  <span class="text-label text-tan mb-4 block"
+                    >Digital storyteller blending creativity with purpose</span
+                  >
+                  <h2 class="text-display font-serif text-ink mb-6">
+                    Blending creativity <br /><span class="italic"
+                      >with purpose.</span
+                    >
+                  </h2>
+                  <p class="text-body text-ink-body max-w-md mb-8">
+                    Digital Marketing Lead and Beauty Therapist bringing ideas
+                    to life with a human touch — through multimedia, documentary
+                    work, and authentic storytelling.
+                  </p>
+                  <div class="flex items-center space-x-6">
+                    <a
+                      class="group flex items-center space-x-2 text-label text-ink hover:text-tan transition-colors"
+                      href="#work"
+                      ><span>View Selected Work</span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right group-hover:translate-x-1 transition-transform"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path></svg
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="lg:col-span-7 flex justify-center lg:justify-end relative"
+              >
+                <div
+                  class="relative w-full max-w-md aspect-[3/4] bg-parchment dark:bg-white p-4 shadow-2xl"
+                  style="opacity: 1; transform: none"
+                >
+                  <img
+                    src="images/AmbatiElizabeth.jpeg"
+                    alt="Ambati Elizabeth"
+                    class="w-full h-full object-cover hover:grayscale transition-all duration-700"
+                  />
+                  <div
+                    class="absolute -top-12 -left-12 font-serif italic text-3xl text-tan/80 transform -rotate-12 hidden lg:block"
+                  >
+                    storyteller
+                  </div>
+                  <div
+                    class="absolute bottom-8 -right-12 bg-parchment p-4 border border-border hidden lg:block"
+                  >
+                    <p
+                      class="text-caption text-ink-muted uppercase tracking-widest"
+                    >
+                      Based in
+                    </p>
+                    <p class="text-label text-ink">Nairobi, Kenya</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-ink-muted"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+          </section>
+          <section id="work" class="py-24 bg-parchment">
+            <div class="max-w-7xl mx-auto px-6">
+              <div class="flex justify-between items-end mb-16">
+                <div>
+                  <span class="text-label text-tan mb-2 block">Portfolio</span>
+                  <h2 class="text-headline font-serif text-ink">
+                    Selected Work
+                  </h2>
+                </div>
+                <a
+                  class="text-label hover:text-tan transition-colors border-b border-tan pb-1"
+                  href="photography.html"
+                  >View All Projects</a
+                >
+              </div>
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+              >
+                <div
+                  class="group cursor-pointer"
+                  style="opacity: 1; transform: none"
+                >
+                  <a class="block" href="photography.html"
+                    ><div
+                      class="relative aspect-[3/4] overflow-hidden bg-parchment-mid mb-6"
+                    >
+                      <img
+                        src="images/portfiloimages/20240314152511_IMG_4212.JPG"
+                        alt="test project"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div
+                        class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      >
+                        <span
+                          class="!text-white text-label border !border-white px-4 py-2"
+                          >View Project</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <span class="text-caption text-ink-muted mb-1 block"
+                          >Photography</span
+                        >
+                        <h3
+                          class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                        >
+                          test project
+                        </h3>
+                      </div>
+                      <span class="text-caption text-ink-muted">2026</span>
+                    </div></a
+                  >
+                </div>
+                <div
+                  class="group cursor-pointer"
+                  style="opacity: 1; transform: none"
+                >
+                  <a class="block" href="videography.html"
+                    ><div
+                      class="relative aspect-[3/4] overflow-hidden bg-parchment-mid mb-6"
+                    >
+                      <img
+                        src="images/portfiloimages/IMG_0083 (2).JPG"
+                        alt="Test Video"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div
+                        class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      >
+                        <span
+                          class="!text-white text-label border !border-white px-4 py-2"
+                          >View Project</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <span class="text-caption text-ink-muted mb-1 block"
+                          >Videography</span
+                        >
+                        <h3
+                          class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                        >
+                          Test Video
+                        </h3>
+                      </div>
+                      <span class="text-caption text-ink-muted">2026</span>
+                    </div></a
+                  >
+                </div>
+                <div
+                  class="group cursor-pointer"
+                  style="opacity: 1; transform: none"
+                >
+                  <a class="block" href="#"
+                    ><div
+                      class="relative aspect-[3/4] overflow-hidden bg-parchment-mid mb-6"
+                    >
+                      <img
+                        src="images/portfiloimages/IMG_0088 (2).jpg"
+                        alt="Lorem Ipsum"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div
+                        class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      >
+                        <span
+                          class="!text-white text-label border !border-white px-4 py-2"
+                          >View Project</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                      <div>
+                        <span class="text-caption text-ink-muted mb-1 block"
+                          >Opinion</span
+                        >
+                        <h3
+                          class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                        >
+                          The Digital Voice
+                        </h3>
+                      </div>
+                      <span class="text-caption text-ink-muted">2026</span>
+                    </div></a
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="writing" class="py-24 bg-parchment-mid">
+            <div class="max-w-4xl mx-auto px-6">
+              <div class="text-center mb-16">
+                <span class="text-label text-tan mb-2 block">Editorial</span>
+                <h2 class="text-headline font-serif text-ink">
+                  Latest Writing
+                </h2>
+              </div>
+              <div class="space-y-0">
+                <a
+                  class="group block py-12 border-b border-border last:border-0"
+                  href="#"
+                  ><div
+                    class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start"
+                  >
+                    <div class="text-caption text-ink-muted md:pt-2">
+                      14 April 2026
+                    </div>
+                    <div class="md:col-span-3">
+                      <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-label text-tan">Creative</span>
+                        <div class="w-1 h-1 rounded-full bg-border"></div>
+                        <span class="text-caption text-ink-muted"
+                          >2 min read</span
+                        >
+                      </div>
+                      <h3
+                        class="text-subheading font-serif text-ink mb-4 group-hover:text-tan transition-colors"
+                      >
+                        Mesh &amp; I
+                      </h3>
+                      <p class="text-body text-ink-body line-clamp-2">
+                        Mkuuu, they used to call him.
+                      </p>
+                    </div>
+                  </div></a
+                ><a
+                  class="group block py-12 border-b border-border last:border-0"
+                  href="#"
+                  ><div
+                    class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start"
+                  >
+                    <div class="text-caption text-ink-muted md:pt-2">
+                      12 April 2026
+                    </div>
+                    <div class="md:col-span-3">
+                      <div class="flex items-center space-x-3 mb-2">
+                        <span class="text-label text-tan">Opinion</span>
+                        <div class="w-1 h-1 rounded-full bg-border"></div>
+                        <span class="text-caption text-ink-muted"
+                          >3 min read</span
+                        >
+                      </div>
+                      <h3
+                        class="text-subheading font-serif text-ink mb-4 group-hover:text-tan transition-colors"
+                      >
+                        The Digital Voice
+                      </h3>
+                      <p class="text-body text-ink-body line-clamp-2">
+                        In a world saturated with content, authenticity is the
+                        rarest currency. Here's why keeping it real is the
+                        boldest creative choice you can make.
+                      </p>
+                    </div>
+                  </div></a
+                >
+              </div>
+              <div class="mt-12 text-center">
+                <a
+                  class="text-label hover:text-tan transition-colors inline-flex items-center space-x-2"
+                  href="#"
+                  ><span>Read more articles</span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path></svg
+                ></a>
+              </div>
+            </div>
+          </section>
+          <section id="mini-bits" class="py-24 bg-parchment">
+            <div class="max-w-7xl mx-auto px-6">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-4">
+                  <span class="text-label text-tan mb-2 block">Dispatches</span>
+                  <h2 class="text-headline font-serif text-ink mb-6">
+                    Mini-bits
+                  </h2>
+                  <p class="text-body text-ink-body mb-8">
+                    Quick thoughts, creative sparks, and honest reflections from
+                    a digital storyteller on the move.
+                  </p>
+                  <a
+                    class="text-label hover:text-tan transition-colors border-b border-tan pb-1"
+                    href="#"
+                    >View Archive</a
+                  >
+                </div>
+                <div class="lg:col-span-8 space-y-12">
+                  <div
+                    class="bg-white p-8 border border-border relative"
+                    style="opacity: 1; transform: none"
+                  >
+                    <div class="flex justify-between items-center mb-6">
+                      <span
+                        class="text-label text-tan px-3 py-1 bg-parchment-mid"
+                        >On Storytelling</span
+                      ><span class="text-caption text-ink-muted"
+                        >14 April 2026</span
+                      >
+                    </div>
+                    <p
+                      class="text-subheading font-serif text-ink leading-relaxed italic"
+                    >
+                      "Every project should feel both professional and personal.
+                      If it doesn't move you, it won't move anyone else."
+                    </p>
+                    <a
+                      class="mt-6 inline-flex items-center gap-2 text-caption uppercase tracking-widest text-ink-muted transition-colors hover:text-tan"
+                      href="#"
+                      >Read mini-bit<svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path></svg
+                    ></a>
+                  </div>
+                  <div
+                    class="bg-white p-8 border border-border relative"
+                    style="opacity: 1; transform: none"
+                  >
+                    <div class="flex justify-between items-center mb-6">
+                      <span
+                        class="text-label text-tan px-3 py-1 bg-parchment-mid"
+                        >Reflection</span
+                      ><span class="text-caption text-ink-muted"
+                        >10 April 2026</span
+                      >
+                    </div>
+                    <p
+                      class="text-subheading font-serif text-ink leading-relaxed italic"
+                    >
+                      "Cyberbullying leaves no visible bruises — yet the scars
+                      run deep. That's exactly why we need to keep telling these
+                      stories."
+                    </p>
+                    <a
+                      class="mt-6 inline-flex items-center gap-2 text-caption uppercase tracking-widest text-ink-muted transition-colors hover:text-tan"
+                      href="#"
+                      >Read mini-bit<svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path></svg
+                    ></a>
+                  </div>
+                  <div
+                    class="bg-white p-8 border border-border relative"
+                    style="opacity: 1; transform: none"
+                  >
+                    <div class="flex justify-between items-center mb-6">
+                      <span
+                        class="text-label text-tan px-3 py-1 bg-parchment-mid"
+                        >Note to self</span
+                      ><span class="text-caption text-ink-muted"
+                        >3 April 2026</span
+                      >
+                    </div>
+                    <p
+                      class="text-subheading font-serif text-ink leading-relaxed italic"
+                    >
+                      "Creativity and purpose aren't opposites. The best digital
+                      marketing makes people feel something real."
+                    </p>
+                    <a
+                      class="mt-6 inline-flex items-center gap-2 text-caption uppercase tracking-widest text-ink-muted transition-colors hover:text-tan"
+                      href="#"
+                      >Read mini-bit<svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path></svg
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="about" class="py-24 bg-parchment-mid">
+            <div
+              class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+            >
+              <div
+                class="relative aspect-square lg:aspect-[4/5] overflow-hidden"
+              >
+                <img
+                  src="images/AmbatiElizabeth.jpeg"
+                  alt="Ambati Elizabeth"
+                  loading="lazy"
+                  class="w-full h-full object-cover grayscale"
+                />
+              </div>
+              <div>
+                <span class="text-label text-tan mb-2 block"
+                  >The Storyteller</span
+                >
+                <h2 class="text-headline font-serif text-ink mb-8">
+                  Ambati Elizabeth
+                </h2>
+                <div
+                  class="editorial-prose text-ink-body [&amp;_p]:text-ink-body [&amp;_p+p]:mt-6"
+                >
+                  <p>
+                    I'm Ambati Elizabeth, a digital storyteller blending
+                    creativity with purpose. As a Digital Marketing Lead and
+                    Beauty Therapist, I bring ideas to life with a human touch.
+                  </p>
+                  <p>
+                    My passion lies in multimedia storytelling, whether through
+                    documentary work on social issues like cyberbullying or
+                    creative projects that connect people. I believe in keeping
+                    things clear, engaging, and authentic, so every project
+                    feels both professional and personal.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="bg-ink py-20 text-parchment">
+        <div class="mx-auto w-full max-w-7xl px-6">
+          <div
+            class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="lg:col-span-2">
+              <h2 class="mb-6 font-serif text-3xl">Ambati Elizabeth</h2>
+              <p class="mb-8 max-w-sm text-parchment/60">
+                Digital storyteller blending creativity with purpose. Digital
+                Marketing Lead and Beauty Therapist bringing ideas to life with
+                a human touch.
+              </p>
+              <div class="flex flex-wrap gap-6">
+                <a
+                  href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                  aria-label="Instagram"
+                  class="transition-colors hover:text-tan"
+                  target="_blank"
+                  rel="noreferrer"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-instagram"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      width="20"
+                      height="20"
+                      x="2"
+                      y="2"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg
+                ></a>
+              </div>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Navigation</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="photography.html"
+                    >Photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="videography.html"
+                    >Videography</a
+                  >
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="#"
+                    >Writing</a
+                  >
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="#"
+                    >Mini-bits</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Connect</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                    class="transition-colors hover:text-tan"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-between border-t border-parchment/10 pt-8 text-caption text-parchment/40 md:flex-row"
+          >
+            <p>
+              ©
+              <!-- -->2026<!-- -->
+              Ambati Elizabeth. All rights reserved.
+            </p>
+            <p class="mt-4 md:mt-0">Built with intention in Nairobi.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="/_next/static/chunks/webpack-562fc193856cbd1f.js"
+      async=""
+    ></script>
+    <script>
+      (self.__next_f = self.__next_f || []).push([0]);
+      self.__next_f.push([2, null]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '1:HL["/_next/static/media/7b89a4fd5e90ede0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n2:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n3:HL["/_next/static/css/41e5fefdb2ac3bb8.css","style"]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '4:I[12846,[],""]\n7:I[4707,[],""]\n8:I[36423,[],""]\na:I[61060,[],""]\nb:[]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '0:["$","$L4",null,{"buildId":"71TB-54lxa6iOA173lzgS","assetPrefix":"","urlParts":["",""],"initialTree":["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"initialSeedData":["",{"children":["__PAGE__",{},[["$L5","$L6",null],null],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/41e5fefdb2ac3bb8.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(() =\u003e {\\n  const stored = localStorage.getItem(\\"theme\\");\\n  const theme = stored === \\"dark\\" ? \\"dark\\" : \\"light\\";\\n  document.documentElement.setAttribute(\\"data-theme\\", theme);\\n})();"}}]}],["$","body",null,{"className":"__variable_3eb911 __variable_b6c3be font-sans bg-parchment text-ink","children":[["$","a",null,{"href":"#main-content","className":"skip-link","children":"Skip to content"}],["$","$L7",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L8",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]]}]]}]],null],null],"couldBeIntercepted":false,"initialHead":[null,"$L9"],"globalErrorComponent":"$a","missingSlots":"$Wb"}]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '9:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Ambati Elizabeth"}],["$","meta","3",{"name":"description","content":"Journalist. Photographer. Storyteller."}],["$","link","4",{"rel":"canonical","href":"https://eliane.studio"}],["$","meta","5",{"property":"og:title","content":"Ambati Elizabeth"}],["$","meta","6",{"property":"og:description","content":"Journalist. Photographer. Storyteller."}],["$","meta","7",{"property":"og:url","content":"https://eliane.studio"}],["$","meta","8",{"property":"og:site_name","content":"Ambati Elizabeth"}],["$","meta","9",{"property":"og:image","content":"https://eliane.studio/eliane-og.jpeg"}],["$","meta","10",{"property":"og:image:alt","content":"Ambati Elizabeth portrait"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Ambati Elizabeth"}],["$","meta","14",{"name":"twitter:description","content":"Journalist. Photographer. Storyteller."}],["$","meta","15",{"name":"twitter:image","content":"https://eliane.studio/eliane-og.jpeg"}],["$","link","16",{"rel":"shortcut icon","href":"/memo-3d.png"}],["$","link","17",{"rel":"icon","href":"/memo-3d.png","type":"image/png"}],["$","link","18",{"rel":"apple-touch-icon","href":"/memo-3d.png"}],["$","meta","19",{"name":"next-size-adjust"}]]\n5:null\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        'c:I[19969,["7757","static/chunks/7757-f07999ff6b01bf69.js","1712","static/chunks/1712-83273b0f0ca29c02.js","2972","static/chunks/2972-ddac6294bade0e15.js","6611","static/chunks/6611-b918b7a43952bc05.js","964","static/chunks/964-c04c516f7fb4f7e3.js","9969","static/chunks/9969-752d83f33a926dfc.js","7457","static/chunks/app/(site)/layout-127ca17f3e59db9b.js"],"SiteNav"]\nd:I[15041,["7757","static/chunks/7757-f07999ff6b01bf69.js","1712","static/chunks/1712-83273b0f0ca29c02.js","5878","static/chunks/5878-d658bab7fc5971c4.js","2972","static/chunks/2972-ddac6294bade0e15.js","6611","static/chunks/6611-b918b7a43952bc05.js","964","static/chunks/964-c04c516f7fb4f7e3.js","5738","static/chunks/5738-7d69f55ed72e1fc9.js","9969","static/chunks/9969-752d83f33a926dfc.js","1931","static/chunks/app/page-c3978f5176bc3a5c.js"],"default"]\ne:T512,data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADbklEQVR4nAXBaVMaBwCA4QWn0+k004SOtQLKchpgcTmXS8AjHDGKaNV4xaImWo2mIko8iBgvNBGLCUmmTZuadvK1k37rz3v7PEJTYpqm5DzqwRXUYwXUUyXU+Weolo5Rrb1AVbhEtXmFausV6s06TYUaTYULVMUa6s0a6uIF6uJL1BvnqAtVhJa+WZozD9Hk1rg5WeLGfIWvVqp8sV5DXWqg2nmLavcdqu03fPnkDE2+hObRHl9vXXKj3OCb3Vfc3K6jeVrj29IFQnJwgdTIEqmJde7M7ZF4XCVU/AV59y22ynuMRx8wV6+xVa9xFqt4h6ZQxh8S2a2ROHpH3/5r0s/q9O9dMLBzjrA+Mc/2j8tUljY5LlQ42X3J88oVT/frrOzV+KlSp1h7T7nxkWL5lAcDORZ/mOSwfMrz8il767scbZU5KGxTWHqCcDAySj0/z6/Lq/xRLPHp4IRPh2e8/nmTw9kFzheW+fvgmH+vGvy1X+EgN0R1dITrjQ0u5xcoDw5yMj5KaXiYye4ehJVolHImTXXoHmfjo7xdXeVjcYur6SlOMikaQxn+WZrh88ZjPq08opFNUs/EeDOS4SAZYzUgsxb2MxcKMOmVEPrNIjm7jbzbwWLYR2kky1X+Pr/lumkkg1wPBvhvzMPnYR/X2RD1PjeHXRLH3TI7MYm818GMr5N8xM9S3IfQL35Pl0FP2mJkrNPOTHeU8lCMPwck3qddXGVkfr/XwYeslYsBB6s9bh4kgsz3hZmOe+l12YlLTlJBP3ejQYSArhVJp0cxiPRarfQ4JUZ9MqWoxE7MzWLYy2zEw1yfj/u9ARKhEEqoi1A4jOKWcRhNmNsMmI0mTGYbgtiiw6IV8Zg6UCwO/FaJuNNP1hchF4iSdiskZD8Rj4LPE8EpR5AkP512CbvZRptepPk7PZpmLZpmHYLdZEdxekkGYvR6I8TcUVLBPvojSdJKgrjLR9Ah43f58chhZJdCZ4eEbLVx23obrUXiltHJLYMdjehAiMsKuUSaiUyOe5Fe+pUuhsJxUt4Qcacbj9mGw2hBstpx2hzcNtmwtpuwGoxYTDZ0FifNJokWi0yLU0Hod3Qy1ZNiNjtONtLDXZfMHYdE',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        "0GzFpTdgbdVj0rZh0omIOgPt2nbE1nYs2jYsehGjzoDY0oZRK9ImdvA/lC/lzT9TXIAAAAAASUVORK5CYII=f:T9de,",
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAIAAACjcKk8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAHBklEQVR4nC3O+VcTBwLA8fkjtt1u7bpWjiRAgWAAA4oogspN5fBACUJACKBSEpArnAKCRQQsVpRDAbHhSAIIBAIJue/MTDKTySRDSLgUlO5fsM923/v8+n3vC8h0RrkBVJosahBRQ6gGsmlhTGfBdRaH1oJrLXYtbNfAmPorVA1ZlRCsACG5CdwwmACFAVaaEDWIaWFca3HoLQ6D1WlACANC6FGnwUZ8hRJ6lNAjTq3FroZRFYQoQYvcBAEqENPAuM7iNCCbRtRlQl1mm8uMbZmwLQO6qQJtEo1pTW1UGK1aGNcjTj3q1FkdahhTQTZAa3HorIQBdZkxN4i5Qbvnb2oQE4ok/S+H65se1TS0dPU8fz32fnZRLFYa5EZE89cmoEcIo81lsrtB3APh239TmdDhcV7JvfLL8Qln6BHnIujxsRcz0tPvFpfUcJufv3ojkul0VgIwYlsmuwfEdyDnLuzchYk9A7o5zhPcySsIp9HoAaQkGiX7TOCts8GpkdQL9LBIOj0tPatn4PWGzgKY7dtmxy5I7EHEHkzsQc69Fbm+spobER5+LsCrOIrSnU4fyosfyLlclxKZFXXqdJB/cBA1m5E38HoMAL+W+9DmJ9j10er6ZEBdg6PvkpLTQigkBt33VUaIuDxZ3lK8XFcwzEyoTI5IoIcEkMkhtLCMrJsA7PwIEQew6xBxHaJbB1INVFXLpdFoYeST5efJs4xwdfXPstaiJW7h7P20Zzei8mJoZ4L8/Em+QT8FA5bNA4vrs3XrC7r12bZ18EGsyGfe9ffzDyX/yDrnO3KTJroXN12aNFKUMlOW9K7gYuvViJI4WgLNj+LtAyCuz6j7CPUcYZ4vmPtgXiTJYeT6kSlUnxO3I8nd6bTZwvPTd+PGCq+IqjKX2amjeTEvbkWzYmn+3t6AzXVkdx/ZPV/w7S+453BBJM3JYZB9Sad8TrCi/X7LDOUXnJdUpMirM42PGJLqjBFm3NPbsbkx4WQvb8C+dYS7jxyeI+fOEbFzJFpXMZmFZF9SqPcP1bGUVxkhk/kXpNxcTetdWe0NQcnljsyzOTHhkcGB3l4+AO75r8Pzp3P7/7F4Q8dilZJJJN9j394OO9mWRB3MT1xtq5B3Vs5XXBvOia5MCI0Opvh4eXud9AFw95/Y1md08yNC7CPE/ocVWQGzkEIi/eubb6gnvrsTFfiMkSRqYCk7yoXsGwO3L3AST0cH+3v96OV10huw4PtGq0tlQGVaaENjHv9jJpeRQw0MPP7v48f++S3d9/j92JCR/Cv88qw3xSkDuXHNmefjT1NJPiQfHxKgMtpW1pVTM4Kx8YmxsbG+3h5m7u2oCDqZRDn2/Q//+e4fMaTv75/3e5we+TLvymRpah8jLi2S6kcmk8n+wNKKZOzt26ddbe2N1R3NNS117PzszMjwMLIvxY9MCf2JHON//E74iY6fQ2fupYofZg0xL92KptKCAoIDg4B3E+96utoaKu81sFmdDZyuRk7BrYzTp6jUgIDU+Dh2XtbDtIjWeL83jMj1h1cVddfHi+Lvp5y5Ghd16Vwk8KLvaWsdu678bheXzRvqnZ/4/UlDRd61lMLsjJ7mSt6TqqGC2OHrp+ZYF2W1WcrG7PdlyQ3Zl6qYWeXM68CTFi63gsUtLxrsbtGtTNs1y8r5ceFo79Lk7/rlCfVIq6A0lp9PX2Mnqxqy1a25c5z0/uK00ceVC+N9QGtNRe39wmZO6eRgD6JY2IWkHvO62yTehqS7ZjHC6xZzEldY5+QP0zTNOYYnpfK2grkmpmKyfxuWAI2cspqygs569sLkIKpc8JjFu7DkIyI/wNQfYSky9XStKllUfFbKTlQ3M/TdD7RdLFlnCch/eWjXAPXlxTVlBf3t9ZK5cUQ+R2gXt8G1favsANPsQRL4/a+rnMTFogjxg8sbdddkjTnrtVniplzT9ItPNjVQ96Co/kHhcG+bZmXKIuWj0lm3YWXfKvtkU+2AEgt/YK3p5mLZBVH5FREnbfGXlIWK1NXHJfCHNweYBuBWlDZxSiZf/moUT4Ninlk06dQs7lo29qyKHWgDl87o3rRLOovELXlLjXcWGu6sdv+imXyGywVft1uq2Y/rK/ijfaa1Kf3imGZuGFMIPaBkB97YBiUu7bJtnQfND5mmf9O979PxnpsXRpB1nku/dGhXA+3c6v4Oroj3CpZMqwRD6++fw+tTW6ZVD7jmMa26NB+cyjmHQojLBXYZH5PxcbnAoRS6jcuHdiXQVsd5/ezRxtxbeH1KNjWwMNypW3xL6BZdRpFLv0So5hwKvlMhcCqEuEKAKwQOhdCpEnpMyweYHGiqLBt93q5amgDX/lh71zv9okU2O4gphYTuA6GZdyhmcdkMLpvFZbP2v+ByvkPJdxsWD2zS/wEyRSiMaLtVNwAAAABJRU5ErkJggg==",
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '6:["$","div",null,{"className":"flex min-h-screen flex-col","children":[["$","$Lc",null,{}],["$","main",null,{"id":"main-content","className":"flex-1","children":["$","$Ld",null,{"home":{"featuredPhoto":{"_id":"7d15371c-d17e-4a6c-95c3-95a6a4730585","coverImage":{"_type":"image","alt":"cover image","asset":{"_id":"image-3cfd97af0de96264abee043c76ca4ce63b10a50a-4452x2968-jpg","metadata":{"dimensions":{"_type":"sanity.imageDimensions","aspectRatio":1.5,"height":2968,"width":4452},"lqip":"data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMGAQL/xAAgEAABBAEEAwAAAAAAAAAAAAABAAIDEQQFEiExExRR/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDBP/EABcRAQEBAQAAAAAAAAAAAAAAAAAREiH/2gAMAwEAAhEDEQA/AIDSMvN9YzSaiQbrxfQk6pktBe4SGyb74KnDNJHINjiKpZkTvlNOPCpntZa5kkfvNnvlCWUJwf/Z"},"url":"https://cdn.sanity.io/images/29a6y6oy/production/3cfd97af0de96264abee043c76ca4ce63b10a50a-4452x2968.jpg"}},"date":"2026-04-12","description":"This is a description","location":"nairobi, kenya","slug":"test-project","title":"test project"},"featuredVideo":{"_id":"143089fc-5467-4bfd-8f52-188b09a39ffd","date":"2026-04-12","description":"Lorem ipsum is a dummy text.","duration":"18 seconds","slug":"test-video","thumbnailImage":{"_type":"image","alt":"Elegance","asset":{"_id":"image-93036645e87d3f465aca9e2c0533db5b6ed572fa-736x552-jpg","metadata":{"dimensions":{"_type":"sanity.imageDimensions","aspectRatio":1.3333333333333333,"height":552,"width":736},"lqip":"data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYBBAj/xAAgEAACAgICAwEBAAAAAAAAAAABAgMEABEFIQYSEwci/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwAC/8QAGxEAAQQDAAAAAAAAAAAAAAAAAAEDIjEREjL/2gAMAwEAAhEDEQA/ANEUOBoTVInZCXZQT/WIn6LyI8avww0qKTq6FyWY9axroc5Tqqh+cvuF0e+sWfN4IfI5hLFM9dwvrsrvreC5zGxW8bSos0hHa4+pYaMRtNEHKg9AnDIqypXp14AS/wAowntrW9YZlCU//9k="},"url":"https://cdn.sanity.io/images/29a6y6oy/production/93036645e87d3f465aca9e2c0533db5b6ed572fa-736x552.jpg"}},"title":"Test Video"},"featuredWriting":{"_id":"15d8889c-ed36-42f4-b110-abc233e2f635","category":"Opinion","coverImage":{"_type":"image","alt":"nairobi","asset":{"_id":"image-4cea2c4eff0300317ebd374f60c09be9affec1cc-828x544-png","metadata":{"dimensions":{"_type":"sanity.imageDimensions","aspectRatio":1.5220588235294117,"height":544,"width":828},"lqip":"$e"},"url":"https://cdn.sanity.io/images/29a6y6oy/production/4cea2c4eff0300317ebd374f60c09be9affec1cc-828x544.png"}},"excerpt":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s...","publishedAt":"2026-04-12T15:45:00.000Z","readingTime":3,"slug":"lorem-ipsum","subtitle":"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...","title":"Lorem Ipsum"},"latestWriting":[{"_id":"425a7678-f00c-448c-90b4-353ea16bc529","category":"Creative","excerpt":"Mkuuu, they used to call him.","publishedAt":"2026-04-14T16:19:17.739Z","readingTime":2,"slug":"mesh-and-i","subtitle":"Our story","title":"Mesh \u0026 I "},{"_id":"15d8889c-ed36-42f4-b110-abc233e2f635","category":"Opinion","excerpt":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s...","publishedAt":"2026-04-12T15:45:00.000Z","readingTime":3,"slug":"lorem-ipsum","subtitle":"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...","title":"Lorem Ipsum"}],"latestMiniBits":[{"_id":"minibit-1","title":"Monday notebook","slug":"monday-notebook","publishedAt":"2026-03-18","mood":"Observation","body":[{"_type":"block","style":"normal","markDefs":[],"children":[{"_type":"span","text":"The matatu conductor called out routes like poetry today. Same words, different rhythm every stop.","marks":[]}]}]},{"_id":"minibit-2","title":"After class","slug":"after-class","publishedAt":"2026-03-13","mood":"Reflection","body":[{"_type":"block","style":"normal","markDefs":[],"children":[{"_type":"span","text":"A lecturer reminded us that law is only useful when ordinary people can understand it. I wrote that line in caps.","marks":[]}]}]},{"_id":"minibit-3","title":"Field audio","slug":"field-audio","publishedAt":"2026-03-06","mood":"Note to self","body":[{"_type":"block","style":"normal","markDefs":[],"children":[{"_type":"span","text":"Always capture five seconds of room tone before every interview.","marks":[]}]}]}]},"siteSettings":{"email":null,"instagramUrl":"https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw==","linkedinUrl":null,"metaDescription":"A dual-degree journalism and law student exploring the intersection of truth, justice, and visual storytelling in Nairobi.","siteTitle":"Ambati Elizabeth","tagline":"Capturing the unspoken narratives.","twitterUrl":null},"about":{"body":[{"_key":"3128fd8243b4","_type":"block","children":[{"_key":"b6e0976b401d","_type":"span","marks":[],"text":"Hi, I\'m Ambati Elizabeth! I\'m a final-year dual student at Riara University and the University of Nairobi, studying Communication \u0026 Multimedia Journalism alongside Law. I\'m a storyteller at heart, whether through research, writing or video and I believe every moment holds something worth capturing. "}],"markDefs":[],"style":"normal"},{"_key":"4451aaa764a6","_type":"block","children":[{"_key":"7db1c16337e5","_type":"span","marks":[],"text":"Journalism and law go hand in hand for me; both give voice to the voiceless. Inspired by the people around me, I\'m on a mission to leave the world a little better than I found it. Come along for the journey!"}],"markDefs":[],"style":"normal"}],"headline":"Ambati Elizabeth","heroImage":{"_type":"image","alt":"Ambati Elizabeth","asset":{"_id":"image-095dcf2a73c6e10ad7c45a16a2c6add6a243f26f-640x960-png","metadata":{"dimensions":{"_type":"sanity.imageDimensions","aspectRatio":0.6666666666666666,"height":960,"width":640},"lqip":"$f"},"url":"https://cdn.sanity.io/images/29a6y6oy/production/095dcf2a73c6e10ad7c45a16a2c6add6a243f26f-640x960.png"}},"signatureImage":null}}]}],"$L10"]}]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '11:I[72972,["2972","static/chunks/2972-ddac6294bade0e15.js","7995","static/chunks/app/(site)/not-found-3bbc9526e8e75487.js"],""]\n',
+      ]);
+    </script>
+    <script>
+      self.__next_f.push([
+        1,
+        '10:["$","footer",null,{"className":"bg-ink py-20 text-parchment","children":["$","div",null,{"className":"mx-auto w-full max-w-7xl px-6","children":[["$","div",null,{"className":"mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4","children":[["$","div",null,{"className":"lg:col-span-2","children":[["$","h2",null,{"className":"mb-6 font-serif text-3xl","children":"Ambati Elizabeth"}],["$","p",null,{"className":"mb-8 max-w-sm text-parchment/60","children":"Journalist and Law student based in Nairobi. Dedicated to storytelling that bridges the gap between information and empathy."}],["$","div",null,{"className":"flex flex-wrap gap-6","children":[["$","a","Instagram",{"href":"https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw==","aria-label":"Instagram","className":"transition-colors hover:text-tan","target":"_blank","rel":"noreferrer","children":["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":20,"height":20,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-instagram","aria-hidden":"true","children":[["$","rect","2e1cvw",{"width":"20","height":"20","x":"2","y":"2","rx":"5","ry":"5"}],["$","path","9exkf1",{"d":"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"}],["$","line","r4j83e",{"x1":"17.5","x2":"17.51","y1":"6.5","y2":"6.5"}],"$undefined"]}]}]]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"mb-6 text-label text-tan","children":"Navigation"}],["$","ul",null,{"className":"space-y-4 text-caption","children":[["$","li",null,{"children":["$","$L11",null,{"href":"/photography","className":"transition-colors hover:text-tan","children":"Photography"}]}],["$","li",null,{"children":["$","$L11",null,{"href":"/videography","className":"transition-colors hover:text-tan","children":"Videography"}]}],["$","li",null,{"children":["$","$L11",null,{"href":"/writing","className":"transition-colors hover:text-tan","children":"Writing"}]}],["$","li",null,{"children":["$","$L11",null,{"href":"/mini-bits","className":"transition-colors hover:text-tan","children":"Mini-bits"}]}]]}]]}],["$","div",null,{"children":[["$","h4",null,{"className":"mb-6 text-label text-tan","children":"Connect"}],["$","ul",null,{"className":"space-y-4 text-caption","children":[["$","li","Instagram",{"children":["$","a",null,{"href":"https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw==","className":"transition-colors hover:text-tan","target":"_blank","rel":"noreferrer","children":"Instagram"}]}]]}]]}]]}],["$","div",null,{"className":"flex flex-col items-center justify-between border-t border-parchment/10 pt-8 text-caption text-parchment/40 md:flex-row","children":[["$","p",null,{"children":["© ",2026," Ambati Elizabeth. All rights reserved."]}],["$","p",null,{"className":"mt-4 md:mt-0","children":"Built with intention in Nairobi."}]]}]]}]}]\n',
+      ]);
+    </script>
+    <next-route-announcer style="position: absolute"></next-route-announcer>
+  </body>
+</html>

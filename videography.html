@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ["selector", "[data-theme='dark']"],
+        theme: {
+          extend: {
+            colors: {
+              parchment: {
+                DEFAULT: "rgb(var(--parchment) / <alpha-value>)",
+                mid: "rgb(var(--parchment-mid) / <alpha-value>)",
+              },
+              ink: {
+                DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+                body: "rgb(var(--ink-body) / <alpha-value>)",
+                muted: "rgb(var(--ink-muted) / <alpha-value>)",
+              },
+              tan: "rgb(var(--tan) / <alpha-value>)",
+              border: "rgb(var(--border) / <alpha-value>)",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            fontSize: {
+              display: [
+                "clamp(2.25rem, 5vw, 4rem)",
+                { lineHeight: "1.1", letterSpacing: "-0.02em" },
+              ],
+              headline: ["clamp(2rem, 3.5vw, 3rem)", { lineHeight: "1.15" }],
+              subheading: [
+                "clamp(1.25rem, 2vw, 1.5rem)",
+                { lineHeight: "1.3" },
+              ],
+              body: ["1rem", { lineHeight: "1.75" }],
+              label: ["0.75rem", { lineHeight: "1", letterSpacing: "0.1em" }],
+              caption: ["0.6875rem", { lineHeight: "1.4" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Portfolio Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Videography — Ambati Elizabeth</title>
+    <meta
+      name="description"
+      content="Video work by Ambati Elizabeth — documentaries, social storytelling, and creative film."
+    />
+    <link rel="shortcut icon" href="/memo-3d.png" />
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const theme = stored === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <style>
+      /* Video card play-button overlay */
+      .video-card {
+        position: relative;
+        cursor: pointer;
+      }
+      .video-card .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(28, 25, 23, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.3s;
+      }
+      .video-card:hover .overlay {
+        opacity: 0.7;
+      }
+      .video-card iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Modal */
+      #video-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.85);
+        align-items: center;
+        justify-content: center;
+      }
+      #video-modal.open {
+        display: flex;
+      }
+      #modal-inner {
+        position: relative;
+        width: 90vw;
+        max-width: 960px;
+        aspect-ratio: 16/9;
+        background: #000;
+      }
+      #modal-inner iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      #modal-close {
+        position: absolute;
+        top: -2.5rem;
+        right: 0;
+        color: #fff;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-parchment text-ink">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="flex min-h-screen flex-col">
+      <!-- ── Nav ── -->
+      <nav
+        class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 border-border bg-parchment backdrop-blur-md"
+      >
+        <div
+          class="max-w-7xl mx-auto h-20 px-6 flex justify-between items-center"
+        >
+          <a
+            class="font-serif text-xl tracking-tight text-ink"
+            href="index.html"
+            >Ambati Elizabeth</a
+          >
+          <div class="hidden lg:flex items-center space-x-8">
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="photography.html"
+              >Photography</a
+            >
+            <a
+              class="text-label text-tan border-b border-tan pb-0.5"
+              href="videography.html"
+              >Video</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="mini-bits.html"
+              >Mini-bits</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="about.html"
+              >About</a
+            >
+            <button
+              aria-label="Toggle theme"
+              id="theme-toggle"
+              class="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ease-out text-ink hover:bg-parchment-mid"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="h-4 w-4 rounded-full border border-current bg-transparent"
+              ></span>
+            </button>
+          </div>
+          <button
+            aria-expanded="false"
+            aria-label="Open menu"
+            id="mobile-menu-btn"
+            class="lg:hidden text-ink"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-border bg-parchment px-6 py-6 space-y-4"
+        >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="photography.html"
+            >Photography</a
+          >
+          <a class="block text-label text-tan" href="videography.html">Video</a>
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="mini-bits.html"
+            >Mini-bits</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="about.html"
+            >About</a
+          >
+        </div>
+      </nav>
+
+      <main id="main-content" class="flex-1 pt-20">
+        <!-- ── Hero Banner ── -->
+        <section class="bg-parchment-mid py-24 relative overflow-hidden">
+          <div
+            class="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-5"
+          >
+            <span
+              class="font-serif text-[18vw] leading-none tracking-tighter text-ink"
+              >Video</span
+            >
+          </div>
+          <div class="max-w-7xl mx-auto px-6 relative">
+            <span class="text-label text-tan mb-4 block">Visual Work</span>
+            <h1 class="text-display font-serif text-ink mb-4">Videography</h1>
+            <p class="text-body text-ink-body max-w-xl">
+              Documentaries, social stories, and creative films — each piece
+              crafted to connect, inform, and move.
+            </p>
+          </div>
+        </section>
+
+        <!-- ── Featured Video ── -->
+        <section class="py-24 bg-parchment">
+          <div class="max-w-7xl mx-auto px-6">
+            <span class="text-label text-tan mb-2 block">Featured</span>
+            <h2 class="text-headline font-serif text-ink mb-12">
+              Selected Work
+            </h2>
+
+            <!-- Video Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <!-- Card 1 — YouTube -->
+              <div class="group">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border"
+                  data-src="https://www.youtube.com/embed/FgXrXqr9diQ?autoplay=1"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="https://img.youtube.com/vi/FgXrXqr9diQ/hqdefault.jpg"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <span
+                  class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                  >YouTube · 2026</span
+                >
+                <h3
+                  class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                >
+                  Film I
+                </h3>
+              </div>
+
+              <!-- Card 2 — Drive -->
+              <div class="group">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border"
+                  data-src="https://drive.google.com/file/d/10I5zZE8avv-GzjIk_4ojldLHBkyxvVmf/preview"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="images/portfiloimages/20240314152511_IMG_4212.JPG"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <span
+                  class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                  >Documentary · 2026</span
+                >
+                <h3
+                  class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                >
+                  Film II
+                </h3>
+              </div>
+
+              <!-- Card 3 — Drive -->
+              <div class="group">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border"
+                  data-src="https://drive.google.com/file/d/1mba4R6h5IYH8p9Yp4Rz6L0p8nuSJIABX/preview"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="images/portfiloimages/IMG_0083 (2).JPG"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <span
+                  class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                  >Social Story · 2026</span
+                >
+                <h3
+                  class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                >
+                  Film III
+                </h3>
+              </div>
+
+              <!-- Card 4 — Drive -->
+              <div class="group">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border"
+                  data-src="https://drive.google.com/file/d/1_cIBFAIhbJvpYXopSG6nRiCN8zxOgi26/preview"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="images/portfiloimages/IMG_0088 (2).jpg"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <span
+                  class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                  >Creative Film · 2026</span
+                >
+                <h3
+                  class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                >
+                  Film IV
+                </h3>
+              </div>
+
+              <!-- Card 5 — Drive -->
+              <div class="group">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border"
+                  data-src="https://drive.google.com/file/d/1g2q7vG4jy-hTgBaSyr59kD_kCw-Q82l3/preview"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="images/portfiloimages/IMG_0092 (2).jpg"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <span
+                  class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                  >Documentary · 2026</span
+                >
+                <h3
+                  class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                >
+                  Film V
+                </h3>
+              </div>
+
+              <!-- Card 6 — Drive -->
+              <div class="group">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border"
+                  data-src="https://drive.google.com/file/d/19JZJfiYle-Pym6GpC6v_G1CmlUpY_U-O/preview"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="images/AmbatiElizabeth.jpeg"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <span
+                  class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                  >Social Story · 2026</span
+                >
+                <h3
+                  class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                >
+                  Film VI
+                </h3>
+              </div>
+
+              <!-- Card 7 — Drive -->
+              <div class="group md:col-span-2">
+                <button
+                  class="video-card w-full block relative aspect-video bg-ink overflow-hidden mb-5 border border-border max-w-2xl mx-auto"
+                  data-src="https://drive.google.com/file/d/17m-LerKLgxogObmf_S7iN78oC1ZtMlPd/preview"
+                  aria-label="Play video"
+                >
+                  <img
+                    src="images/AmbatiElizabeth.jpeg"
+                    alt="Video thumbnail"
+                    class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <span class="overlay">
+                    <span
+                      class="w-14 h-14 rounded-full border-2 border-parchment flex items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-parchment ml-1"
+                        aria-hidden="true"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <div class="max-w-2xl mx-auto">
+                  <span
+                    class="text-caption text-ink-muted uppercase tracking-widest mb-1 block"
+                    >Creative Film · 2026</span
+                  >
+                  <h3
+                    class="text-subheading font-serif text-ink group-hover:text-tan transition-colors"
+                  >
+                    Film VII
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- View All in Drive CTA -->
+            <div class="mt-16 text-center">
+              <a
+                href="https://drive.google.com/drive/folders/1xZfRHQ3Nnu5YDal857Y9fn5q_TPopf0M"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center gap-3 px-8 py-4 bg-ink text-parchment text-label hover:bg-ink/80 transition-colors duration-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                View Full Video Archive on Drive
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ── Video Modal ── -->
+      <div
+        id="video-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Video player"
+      >
+        <div id="modal-inner">
+          <button id="modal-close" aria-label="Close video">&times;</button>
+          <iframe
+            id="modal-iframe"
+            src=""
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- ── Footer ── -->
+      <footer class="bg-ink py-20 text-parchment">
+        <div class="mx-auto w-full max-w-7xl px-6">
+          <div
+            class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="lg:col-span-2">
+              <h2 class="mb-6 font-serif text-3xl">Ambati Elizabeth</h2>
+              <p class="mb-8 max-w-sm text-parchment/60">
+                Digital storyteller blending creativity with purpose. Digital
+                Marketing Lead and Beauty Therapist bringing ideas to life with
+                a human touch.
+              </p>
+              <div class="flex flex-wrap gap-6">
+                <a
+                  href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                  aria-label="Instagram"
+                  class="transition-colors hover:text-tan"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      width="20"
+                      height="20"
+                      x="2"
+                      y="2"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Navigation</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="photography.html"
+                    >Photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="videography.html"
+                    >Videography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="writing.html"
+                    >Writing</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="mini-bits.html"
+                    >Mini-bits</a
+                  >
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="about.html"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Connect</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                    class="transition-colors hover:text-tan"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-between border-t border-parchment/10 pt-8 text-caption text-parchment/40 md:flex-row"
+          >
+            <p>© 2026 Ambati Elizabeth. All rights reserved.</p>
+            <p class="mt-4 md:mt-0">Built with intention in Nairobi.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Theme toggle
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.documentElement;
+        const next =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+
+      // Mobile menu
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", () => {
+          const menu = document.getElementById("mobile-menu");
+          const btn = document.getElementById("mobile-menu-btn");
+          const isOpen = !menu.classList.contains("hidden");
+          menu.classList.toggle("hidden");
+          btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+
+      // Video modal
+      const modal = document.getElementById("video-modal");
+      const iframe = document.getElementById("modal-iframe");
+      const closeBtn = document.getElementById("modal-close");
+
+      document.querySelectorAll(".video-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          iframe.src = card.dataset.src;
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove("open");
+        iframe.src = "";
+        document.body.style.overflow = "";
+      }
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    </script>
+  </body>
+</html>

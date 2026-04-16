@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ["selector", "[data-theme='dark']"],
+        theme: {
+          extend: {
+            colors: {
+              parchment: {
+                DEFAULT: "rgb(var(--parchment) / <alpha-value>)",
+                mid: "rgb(var(--parchment-mid) / <alpha-value>)",
+              },
+              ink: {
+                DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+                body: "rgb(var(--ink-body) / <alpha-value>)",
+                muted: "rgb(var(--ink-muted) / <alpha-value>)",
+              },
+              tan: "rgb(var(--tan) / <alpha-value>)",
+              border: "rgb(var(--border) / <alpha-value>)",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            fontSize: {
+              display: [
+                "clamp(2.25rem, 5vw, 4rem)",
+                { lineHeight: "1.1", letterSpacing: "-0.02em" },
+              ],
+              headline: ["clamp(2rem, 3.5vw, 3rem)", { lineHeight: "1.15" }],
+              subheading: [
+                "clamp(1.25rem, 2vw, 1.5rem)",
+                { lineHeight: "1.3" },
+              ],
+              body: ["1rem", { lineHeight: "1.75" }],
+              label: ["0.75rem", { lineHeight: "1", letterSpacing: "0.1em" }],
+              caption: ["0.6875rem", { lineHeight: "1.4" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Portfolio Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Photography — Ambati Elizabeth</title>
+    <meta
+      name="description"
+      content="Photography by Ambati Elizabeth — portraits, documentary, and visual storytelling."
+    />
+    <link rel="shortcut icon" href="/memo-3d.png" />
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const theme = stored === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <style>
+      /* Lightbox */
+      #lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.92);
+        align-items: center;
+        justify-content: center;
+      }
+      #lightbox.open {
+        display: flex;
+      }
+      #lightbox-inner {
+        position: relative;
+        max-width: 92vw;
+        max-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #lightbox-img {
+        max-width: 90vw;
+        max-height: 88vh;
+        object-fit: contain;
+        display: block;
+      }
+      #lightbox-close {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: #fff;
+        background: transparent;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 1001;
+      }
+      #lightbox-prev,
+      #lightbox-next {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        background: rgba(0, 0, 0, 0.4);
+        border: none;
+        padding: 1rem 0.85rem;
+        cursor: pointer;
+        font-size: 1.4rem;
+        z-index: 1001;
+        line-height: 1;
+        transition: background 0.2s;
+      }
+      #lightbox-prev:hover,
+      #lightbox-next:hover {
+        background: rgba(0, 0, 0, 0.7);
+      }
+      #lightbox-prev {
+        left: 0.75rem;
+      }
+      #lightbox-next {
+        right: 0.75rem;
+      }
+      #lightbox-caption {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      /* Gallery hover */
+      .photo-card img {
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .photo-card:hover img {
+        transform: scale(1.06);
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-parchment text-ink">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="flex min-h-screen flex-col">
+      <!-- ── Nav ── -->
+      <nav
+        class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 border-border bg-parchment backdrop-blur-md"
+      >
+        <div
+          class="max-w-7xl mx-auto h-20 px-6 flex justify-between items-center"
+        >
+          <a
+            class="font-serif text-xl tracking-tight text-ink"
+            href="index.html"
+            >Ambati Elizabeth</a
+          >
+          <div class="hidden lg:flex items-center space-x-8">
+            <a
+              class="text-label text-tan border-b border-tan pb-0.5"
+              href="photography.html"
+              >Photography</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="videography.html"
+              >Video</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="mini-bits.html"
+              >Mini-bits</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="about.html"
+              >About</a
+            >
+            <button
+              aria-label="Toggle theme"
+              id="theme-toggle"
+              class="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ease-out text-ink hover:bg-parchment-mid"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="h-4 w-4 rounded-full border border-current bg-transparent"
+              ></span>
+            </button>
+          </div>
+          <button
+            aria-expanded="false"
+            aria-label="Open menu"
+            id="mobile-menu-btn"
+            class="lg:hidden text-ink"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-border bg-parchment px-6 py-6 space-y-4"
+        >
+          <a class="block text-label text-tan" href="photography.html"
+            >Photography</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="videography.html"
+            >Video</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="mini-bits.html"
+            >Mini-bits</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="about.html"
+            >About</a
+          >
+        </div>
+      </nav>
+
+      <main id="main-content" class="flex-1 pt-20">
+        <!-- ── Hero Banner ── -->
+        <section class="bg-parchment-mid py-24 relative overflow-hidden">
+          <div
+            class="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-5"
+          >
+            <span
+              class="font-serif text-[14vw] leading-none tracking-tighter text-ink"
+              >Photography</span
+            >
+          </div>
+          <div class="max-w-7xl mx-auto px-6 relative">
+            <span class="text-label text-tan mb-4 block">Visual Work</span>
+            <h1 class="text-display font-serif text-ink mb-4">Photography</h1>
+            <p class="text-body text-ink-body max-w-xl">
+              Portraits, documentary stills, and everyday moments — each frame a
+              story waiting to be told.
+            </p>
+          </div>
+        </section>
+
+        <!-- ── Gallery ── -->
+        <section class="py-24 bg-parchment">
+          <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+              <div>
+                <span class="text-label text-tan mb-2 block"
+                  >Selected Work</span
+                >
+                <h2 class="text-headline font-serif text-ink">The Gallery</h2>
+              </div>
+              <span class="text-caption text-ink-muted"
+                >Click any image to enlarge</span
+              >
+            </div>
+
+            <!-- Masonry-style grid -->
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+              <div
+                class="photo-card break-inside-avoid overflow-hidden cursor-pointer border border-border"
+                data-index="0"
+                role="button"
+                tabindex="0"
+                aria-label="View photo 1"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="images/portfiloimages/20240314152511_IMG_4212.JPG"
+                    alt="Photography by Ambati Elizabeth"
+                    class="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="px-4 py-3 bg-parchment border-t border-border">
+                  <span
+                    class="text-caption text-ink-muted uppercase tracking-widest"
+                    >Documentary · 2024</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="photo-card break-inside-avoid overflow-hidden cursor-pointer border border-border"
+                data-index="1"
+                role="button"
+                tabindex="0"
+                aria-label="View photo 2"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="images/portfiloimages/IMG_0083 (2).JPG"
+                    alt="Photography by Ambati Elizabeth"
+                    class="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="px-4 py-3 bg-parchment border-t border-border">
+                  <span
+                    class="text-caption text-ink-muted uppercase tracking-widest"
+                    >Portrait · 2026</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="photo-card break-inside-avoid overflow-hidden cursor-pointer border border-border"
+                data-index="2"
+                role="button"
+                tabindex="0"
+                aria-label="View photo 3"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="images/portfiloimages/IMG_0088 (2).jpg"
+                    alt="Photography by Ambati Elizabeth"
+                    class="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="px-4 py-3 bg-parchment border-t border-border">
+                  <span
+                    class="text-caption text-ink-muted uppercase tracking-widest"
+                    >Storytelling · 2026</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="photo-card break-inside-avoid overflow-hidden cursor-pointer border border-border"
+                data-index="3"
+                role="button"
+                tabindex="0"
+                aria-label="View photo 4"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="images/portfiloimages/IMG_0092 (2).jpg"
+                    alt="Photography by Ambati Elizabeth"
+                    class="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="px-4 py-3 bg-parchment border-t border-border">
+                  <span
+                    class="text-caption text-ink-muted uppercase tracking-widest"
+                    >Creative · 2026</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="photo-card break-inside-avoid overflow-hidden cursor-pointer border border-border"
+                data-index="4"
+                role="button"
+                tabindex="0"
+                aria-label="View photo 5"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src="images/AmbatiElizabeth.jpeg"
+                    alt="Ambati Elizabeth"
+                    class="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="px-4 py-3 bg-parchment border-t border-border">
+                  <span
+                    class="text-caption text-ink-muted uppercase tracking-widest"
+                    >Portrait · 2026</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Approach ── -->
+        <section class="py-24 bg-parchment-mid">
+          <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-label text-tan mb-4 block">Philosophy</span>
+            <h2 class="text-headline font-serif text-ink mb-6">
+              Every frame <span class="italic">holds a truth.</span>
+            </h2>
+            <p class="text-body text-ink-body max-w-2xl mx-auto">
+              I approach photography the same way I approach storytelling — with
+              patience, intention, and a deep respect for the subject. Whether
+              it's a candid moment or a composed portrait, I'm looking for the
+              unspoken detail that makes an image stay with you.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <!-- ── Lightbox ── -->
+      <div
+        id="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Photo viewer"
+      >
+        <button id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+        <div id="lightbox-inner">
+          <img id="lightbox-img" src="" alt="" />
+        </div>
+        <button id="lightbox-next" aria-label="Next photo">&#8250;</button>
+        <button id="lightbox-close" aria-label="Close">&times;</button>
+        <span id="lightbox-caption"></span>
+      </div>
+
+      <!-- ── Footer ── -->
+      <footer class="bg-ink py-20 text-parchment">
+        <div class="mx-auto w-full max-w-7xl px-6">
+          <div
+            class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="lg:col-span-2">
+              <h2 class="mb-6 font-serif text-3xl">Ambati Elizabeth</h2>
+              <p class="mb-8 max-w-sm text-parchment/60">
+                Digital storyteller blending creativity with purpose. Digital
+                Marketing Lead and Beauty Therapist bringing ideas to life with
+                a human touch.
+              </p>
+              <div class="flex flex-wrap gap-6">
+                <a
+                  href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                  aria-label="Instagram"
+                  class="transition-colors hover:text-tan"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      width="20"
+                      height="20"
+                      x="2"
+                      y="2"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Navigation</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="photography.html"
+                    >Photography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="videography.html"
+                    >Videography</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="writing.html"
+                    >Writing</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="transition-colors hover:text-tan"
+                    href="mini-bits.html"
+                    >Mini-bits</a
+                  >
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="about.html"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Connect</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    href="https://www.instagram.com/wanja_eliane?igsh=MXgxYzBla21ta2Z4dw=="
+                    class="transition-colors hover:text-tan"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-between border-t border-parchment/10 pt-8 text-caption text-parchment/40 md:flex-row"
+          >
+            <p>© 2026 Ambati Elizabeth. All rights reserved.</p>
+            <p class="mt-4 md:mt-0">Built with intention in Nairobi.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Theme toggle
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.documentElement;
+        const next =
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+
+      // Mobile menu
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", () => {
+          const menu = document.getElementById("mobile-menu");
+          const btn = document.getElementById("mobile-menu-btn");
+          const isOpen = !menu.classList.contains("hidden");
+          menu.classList.toggle("hidden");
+          btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+
+      // Lightbox
+      const cards = Array.from(document.querySelectorAll(".photo-card"));
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const lbCaption = document.getElementById("lightbox-caption");
+      let current = 0;
+
+      function openLightbox(index) {
+        current = index;
+        const img = cards[index].querySelector("img");
+        const cap = cards[index].querySelector(".text-caption");
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCaption.textContent = cap ? cap.textContent.trim() : "";
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lbImg.src = "";
+        document.body.style.overflow = "";
+      }
+
+      function showNext() {
+        openLightbox((current + 1) % cards.length);
+      }
+      function showPrev() {
+        openLightbox((current - 1 + cards.length) % cards.length);
+      }
+
+      cards.forEach((card) => {
+        card.addEventListener("click", () =>
+          openLightbox(parseInt(card.dataset.index)),
+        );
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ")
+            openLightbox(parseInt(card.dataset.index));
+        });
+      });
+
+      document
+        .getElementById("lightbox-close")
+        .addEventListener("click", closeLightbox);
+      document
+        .getElementById("lightbox-prev")
+        .addEventListener("click", showPrev);
+      document
+        .getElementById("lightbox-next")
+        .addEventListener("click", showNext);
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext();
+        if (e.key === "ArrowLeft") showPrev();
+      });
+    </script>
+  </body>
+</html>
