@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ["selector", "[data-theme='dark']"],
+        theme: {
+          extend: {
+            colors: {
+              parchment: {
+                DEFAULT: "rgb(var(--parchment) / <alpha-value>)",
+                mid: "rgb(var(--parchment-mid) / <alpha-value>)",
+              },
+              ink: {
+                DEFAULT: "rgb(var(--ink) / <alpha-value>)",
+                body: "rgb(var(--ink-body) / <alpha-value>)",
+                muted: "rgb(var(--ink-muted) / <alpha-value>)",
+              },
+              tan: "rgb(var(--tan) / <alpha-value>)",
+              border: "rgb(var(--border) / <alpha-value>)",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+            fontSize: {
+              display: [
+                "clamp(2.25rem, 5vw, 4rem)",
+                { lineHeight: "1.1", letterSpacing: "-0.02em" },
+              ],
+              headline: ["clamp(2rem, 3.5vw, 3rem)", { lineHeight: "1.15" }],
+              subheading: [
+                "clamp(1.25rem, 2vw, 1.5rem)",
+                { lineHeight: "1.3" },
+              ],
+              body: ["1rem", { lineHeight: "1.75" }],
+              label: ["0.75rem", { lineHeight: "1", letterSpacing: "0.1em" }],
+              caption: ["0.6875rem", { lineHeight: "1.4" }],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Portfolio Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Writing — Ambati Elizabeth</title>
+    <meta
+      name="description"
+      content="Feature stories and editorial writing by Ambati Elizabeth — digital storyteller and journalist based in Nairobi."
+    />
+    <link rel="shortcut icon" href="/memo-3d.png" />
+    <script>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const theme = stored === "dark" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body class="font-sans bg-parchment text-ink">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="flex min-h-screen flex-col">
+      <!-- ── Nav ── -->
+      <nav
+        class="fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 border-border bg-parchment backdrop-blur-md"
+      >
+        <div
+          class="max-w-7xl mx-auto h-20 px-6 flex justify-between items-center"
+        >
+          <a
+            class="font-serif text-xl tracking-tight text-ink"
+            href="index.html"
+            >Ambati Elizabeth</a
+          >
+          <div class="hidden lg:flex items-center space-x-8">
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="photography.html"
+              >Photography</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="videography.html"
+              >Video</a
+            >
+            <a
+              class="text-label text-tan border-b border-tan pb-0.5"
+              href="writing.html"
+              >Writing</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="mini-bits.html"
+              >Mini-bits</a
+            >
+            <a
+              class="text-label transition-colors hover:text-tan"
+              href="about.html"
+              >About</a
+            >
+            <button
+              aria-label="Toggle theme"
+              id="theme-toggle"
+              class="theme-toggle group inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ease-out text-ink hover:bg-parchment-mid"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="h-4 w-4 rounded-full border border-current transition-colors duration-200 bg-transparent"
+              ></span>
+            </button>
+          </div>
+          <!-- Mobile menu button -->
+          <button
+            aria-expanded="false"
+            aria-label="Open menu"
+            id="mobile-menu-btn"
+            class="lg:hidden text-ink"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="hidden lg:hidden border-t border-border bg-parchment px-6 py-6 space-y-4"
+        >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="photography.html"
+            >Photography</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="videography.html"
+            >Video</a
+          >
+          <a class="block text-label text-tan" href="writing.html">Writing</a>
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="mini-bits.html"
+            >Mini-bits</a
+          >
+          <a
+            class="block text-label transition-colors hover:text-tan"
+            href="about.html"
+            >About</a
+          >
+        </div>
+      </nav>
+
+      <main id="main-content" class="flex-1 pt-20">
+        <!-- ── Hero Banner ── -->
+        <section class="bg-parchment-mid py-24 relative overflow-hidden">
+          <div
+            class="absolute inset-0 pointer-events-none select-none flex items-center justify-center opacity-5"
+          >
+            <span
+              class="font-serif text-[20vw] leading-none tracking-tighter text-ink"
+              >Writing</span
+            >
+          </div>
+          <div class="max-w-7xl mx-auto px-6 relative">
+            <span class="text-label text-tan mb-4 block">Editorial</span>
+            <h1 class="text-display font-serif text-ink">Writing</h1>
+          </div>
+        </section>
+
+        <!-- ── Feature Article ── -->
+        <article class="py-24 bg-parchment">
+          <div class="max-w-3xl mx-auto px-6">
+
+            <!-- Article header -->
+            <header class="mb-16">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="text-label text-tan px-3 py-1 bg-parchment-mid">Feature Story</span>
+                <span class="text-caption text-ink-muted">2023</span>
+              </div>
+              <h2 class="text-display font-serif text-ink mb-6 leading-tight">
+                Breaking Barriers: The Open University of Kenya Paves the Way for Inclusive Higher Education
+              </h2>
+              <div class="flex items-center gap-4 border-t border-b border-border py-6">
+                <div>
+                  <p class="text-label text-ink">By Ambati Andambi</p>
+                  <p class="text-caption text-ink-muted mt-1">Feature Journalist</p>
+                </div>
+              </div>
+            </header>
+
+            <!-- Article body -->
+            <div class="editorial-prose space-y-8 text-body text-ink-body">
+
+              <p>
+                In the heart of Kenya, a groundbreaking initiative is set to reshape the landscape of higher education. The vision of an Open University of Kenya (OUK) is materializing, ushering in an era of accessibility, flexibility, and lifelong learning. This transformative journey is not only a testament to the nation's commitment to education but also a response to the growing demand for university education and the changing dynamics of the global learning landscape.
+              </p>
+
+              <!-- Section heading -->
+              <h3 class="text-subheading font-serif text-ink pt-4">
+                The Global Tapestry of Open Universities
+              </h3>
+
+              <p>
+                Around the world, Open Universities have become signals of opportunity, embracing the principles of open entry, freedom of time and place, and flexibility. From the iconic Open University in the UK to Athabasca University in Canada and the National Open University of Nigeria, these institutions have expanded access to education for diverse learners. Each carries a unique institutional profile, reflecting the diversity of entry requirements, program structures, and target audiences.
+              </p>
+
+              <p>
+                Dr. Mulder, an education expert, notes that the term "open" in Open University encompasses attributes such as open entry, freedom of time and place, and programming that is accessible to all. However, no single Open University fully incorporates all these aspects, highlighting the varied approaches to openness. For example, the UK Open University requires only basic English and computer skills, while Korea National Open University mandates a secondary education certificate for admission.
+              </p>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">
+                ODeL: A Blend of Innovation and Necessity
+              </h3>
+
+              <p>
+                The adoption of Open, Distance, and e-Learning (ODeL) has played a central role in democratizing education globally. ODeL draws on the strengths of open learning, distance education, and e-learning, promoting access, equity, learner-centredness, and flexibility. The COVID-19 pandemic further accelerated the adoption of ODeL, as universities worldwide embraced blended learning models to ensure continuity in education.
+              </p>
+
+              <p>
+                Despite its potential, the widespread adoption of ODeL faces challenges such as the high cost of technological infrastructure, internet connectivity issues, the digital divide, and capacity constraints among faculty and students. Nevertheless, the benefits of ODeL in expanding educational reach and providing flexibility cannot be understated.
+              </p>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">
+                National Vision: The Birth of Open University of Kenya
+              </h3>
+
+              <p>
+                In Kenya, the journey towards establishing the Open University of Kenya (OUK) spans over a decade, with concerted efforts from various stakeholders. The Universities Act of 2012 paved the way for specialized degree awarding institutions, including a national open university focused on distance and e-learning. A task force, summoned in 2010, further recommended the establishment of OUK.
+              </p>
+
+              <p>Several compelling reasons support the need for OUK:</p>
+
+              <ul class="list-none space-y-3 pl-0">
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span>Rising demand for university education.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span>The imperative of providing equitable and accessible education to all Kenyans.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span>Advances in ICT creating an environment conducive to ODeL and individualized learning.</span>
+                </li>
+              </ul>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">
+                A Glimpse into the Future
+              </h3>
+
+              <p>
+                As of 2023, the Ministry of Education (MoE) has taken concrete steps to operationalize OUK. A dedicated Technical Committee has made significant progress, developing constitutive documents and programs. The university is poised to be chartered and welcome its first cohort of students by September 2023, offering degree programs in Data Science, Cybersecurity and Digital Forensics, Business and Entrepreneurship, Education Technology, and Economics and Statistics.
+              </p>
+
+              <p>
+                The establishment of OUK aligns with the government's broader vision, including Kenya Vision 2030, Sustainable Development Goals (SDG Goal 4), and Agenda 63 on E-Universities. By leveraging ICT, OUK aims to increase access to tertiary and continuing education, providing opportunities to students who face barriers due to geographical or socio-economic factors.
+              </p>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">
+                Voices of Change: Interviews with Stakeholders
+              </h3>
+
+              <p>To bring this transformative narrative to life, let's hear from those directly impacted by these changes:</p>
+
+              <!-- Pull quotes -->
+              <blockquote class="border-l-2 border-tan pl-8 py-2 my-10">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "OUK is a game-changer. It breaks down barriers and brings education to the doorstep of every Kenyan. The focus on Data Science, Cybersecurity, and other cutting-edge fields reflects a forward-thinking approach to meet the demands of the evolving job market."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— Dr. Jane Muthoni, Education Expert</cite>
+              </blockquote>
+
+              <blockquote class="border-l-2 border-tan pl-8 py-2 my-10">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "I live in a remote village, and going to a traditional university was just a dream. With OUK, I can pursue my passion for Data Science without leaving my community. It's a chance I never thought I'd have."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— Samuel Otieno, Prospective OUK Student</cite>
+              </blockquote>
+
+              <blockquote class="border-l-2 border-tan pl-8 py-2 my-10">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "As a parent, seeing my child have access to quality education without the financial strain of relocation is a relief. OUK is a beacon of hope for families like ours."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— Mrs. Grace Wanjiku, Parent</cite>
+              </blockquote>
+
+              <blockquote class="border-l-2 border-tan pl-8 py-2 my-10">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "Our aim is not just to establish a university but to create a hub for innovation, research, and inclusive education. OUK is not just a building; it's a catalyst for societal transformation."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— Prof. David Odhiambo, OUK Technical Committee</cite>
+              </blockquote>
+
+              <p>
+                In conclusion, the Open University of Kenya is not merely an educational institution; it's a catalyst for change, breaking down barriers to higher education and paving way for a more inclusive and accessible future. As the first students walk through its virtual doors in September 2023, OUK marks a significant step towards fulfilling Kenya's vision for a knowledge-driven and empowered society.
+              </p>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Preview Story ── -->
+        <article class="py-24 bg-parchment-mid">
+          <div class="max-w-3xl mx-auto px-6">
+
+            <header class="mb-16">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="text-label text-tan px-3 py-1 bg-parchment">Preview Story</span>
+                <span class="text-caption text-ink-muted">Entertainment Writing</span>
+                <span class="text-caption text-ink-muted">· 2026</span>
+              </div>
+              <h2 class="text-display font-serif text-ink mb-6 leading-tight">
+                AfroFusion Live 2026 Brings Nairobi Together
+              </h2>
+              <div class="flex items-center gap-4 border-t border-b border-border py-6">
+                <div>
+                  <p class="text-label text-ink">By Ambati Elizabeth</p>
+                  <p class="text-caption text-ink-muted mt-1">31 March 2026</p>
+                </div>
+              </div>
+            </header>
+
+            <div class="editorial-prose space-y-8 text-body text-ink-body">
+
+              <p>
+                Nairobi is about to pulse with rhythm and poetry as AfroFusion Live 2026 takes over Uhuru Gardens April 16th to 18th. The three-day festival aims to be a vibrant and colourful concert that celebrates African creativity, serving as a meeting point for generations, and a bold statement about the future of music on the continent.
+              </p>
+
+              <p>Festival organizer James Butita explained the vision with palpable excitement:</p>
+
+              <blockquote class="border-l-2 border-tan pl-8 py-2">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "AfroFusion Live is about blending tradition with modern energy. We want to showcase the richness of African fusion genres while giving independent artists a platform to be heard. Nairobi deserves a festival that feels global but remains proudly African."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— James Butita, Festival Organizer</cite>
+              </blockquote>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">The Line-Up</h3>
+
+              <p>
+                Headlining the event are some of Kenya's most beloved artists: Bien, whose soulful voice has become a staple of modern Afro-pop; Charisma, known for his smooth delivery and genre-bending style; and Femi One, whose lyrical fire continues to inspire young audiences.
+              </p>
+
+              <p>
+                Adding depth to the program is spoken word artist Timelines, the reigning Poetry Slam Africa champion, who will bring raw emotion and social commentary to the stage. And representing the next generation is Amos Ashisoma, a Riara University student performing his heartfelt love songs that have already begun to capture attention. His inclusion signals the festival's commitment to nurturing young talent.
+              </p>
+
+              <blockquote class="border-l-2 border-tan pl-8 py-2">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "Performing at Uhuru Gardens alongside artists I have admired for years feels surreal. I want my music to remind people that love, in all its forms, is still worth singing about."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— Amos Ashisoma, Performer</cite>
+              </blockquote>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">Tickets and Public Reaction</h3>
+
+              <p>
+                Tickets are priced at KES 5,000 for a single-day pass and KES 12,000 for the two-day package. Online, reactions have been mixed. Some fans feel the pricing is steep, especially for students, while others argue the cost reflects the scale of production and the calibre of performers. Mwangi responded candidly:
+              </p>
+
+              <blockquote class="border-l-2 border-tan pl-8 py-2">
+                <p class="font-serif italic text-subheading text-ink leading-relaxed mb-4">
+                  "We know affordability is a concern, but we have worked hard to balance costs with quality. This is a world-class festival, and we believe audiences will see the value once they experience it."
+                </p>
+                <cite class="text-caption text-ink-muted not-italic">— Mwangi, Organizer</cite>
+              </blockquote>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">Community Concerns</h3>
+
+              <p>
+                Not everyone is cheering. Residents near Uhuru Gardens have voiced worries about noise and traffic congestion. Organizers say they are coordinating with Nairobi County authorities to manage traffic flow, provide shuttle services, and ensure sound levels remain within regulations.
+              </p>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">Sponsors and Support</h3>
+
+              <p>
+                The festival is powered by Safaricom, Kenya's leading telecom brand, and Mozzart Bet, a betting company whose involvement has sparked debate. While sponsorship ensures financial stability, some critics question the ethics of betting firms supporting youth-centred events. Mwangi acknowledged the concerns but stressed that sponsorship was vital to keeping the festival sustainable.
+              </p>
+
+              <h3 class="text-subheading font-serif text-ink pt-4">Logistics</h3>
+
+              <ul class="list-none space-y-3 pl-0">
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span><strong class="text-ink font-medium">Dates:</strong> April 17–18, 2026</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span><strong class="text-ink font-medium">Venue:</strong> Uhuru Gardens, Nairobi</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span><strong class="text-ink font-medium">Tickets:</strong> Available via online platforms and select retail outlets</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 rounded-full bg-tan shrink-0"></span>
+                  <span><strong class="text-ink font-medium">Expected Attendance:</strong> 20,000+</span>
+                </li>
+              </ul>
+
+              <p>
+                AfroFusion Live 2026 is going to shape up to be a landmark event. A festival where legends and rising stars converge to remind Nairobi that music and art remains the heartbeat of the city.
+              </p>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Profile Story ── -->
+        <article class="py-24 bg-parchment">
+          <div class="max-w-3xl mx-auto px-6">
+
+            <header class="mb-16">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="text-label text-tan px-3 py-1 bg-parchment-mid">Profile Story</span>
+                <span class="text-caption text-ink-muted">Entertainment Writing</span>
+                <span class="text-caption text-ink-muted">· 2026</span>
+              </div>
+              <h2 class="text-display font-serif text-ink mb-6 leading-tight">
+                Uhuru Gardens
+              </h2>
+              <div class="flex items-center gap-4 border-t border-b border-border py-6">
+                <div>
+                  <p class="text-label text-ink">By Ambati Elizabeth</p>
+                  <p class="text-caption text-ink-muted mt-1">31 March 2026</p>
+                </div>
+              </div>
+            </header>
+
+            <div class="editorial-prose space-y-8 text-body text-ink-body">
+
+              <p>
+                As Nairobi prepares for AfroFusion Live 2026, the choice of venue feels almost poetic. Uhuru Gardens, located along Lang'ata Road, is a park and a living monument to Kenya's independence and resilience.
+              </p>
+
+              <p>
+                Established in 1963, the gardens are home to the Uhuru Monument, marking the exact spot where the Kenyan flag was first raised. For decades, the grounds have hosted independence celebrations, military parades, and national commemorations. To walk through Uhuru Gardens is to walk through history, surrounded by memorials honouring freedom fighters and the sacrifices that shaped the nation.
+              </p>
+
+              <p>
+                But Uhuru Gardens is not frozen in time. In recent years, renovations have transformed it into a modern cultural hub. Expansive lawns, amphitheatre spaces, and improved infrastructure have made it a prime venue for large-scale events. The gardens now serve as a bridge between heritage and contemporary entertainment, hosting concerts as well as national and international festivals.
+              </p>
+
+              <p>
+                For AfroFusion Live, the symbolism is powerful. The festival's theme, which aims at blending tradition with modernity, mirrors the venue's own identity. Here, Kenya's past meets its creative future. Organizers say the gardens' open-air design and historical aura make it the perfect backdrop for a celebration of African fusion.
+              </p>
+
+              <p>
+                Accessibility is another advantage. Just minutes from Nairobi's central business district, Uhuru Gardens is easy to reach by public transport and major roads. Still, its proximity to residential areas has sparked concerns about noise and traffic during major events. Despite this, the gardens remain a cherished public space, offering Nairobians a reminder of national unity.
+              </p>
+
+              <p>
+                As AfroFusion Live 2026 approaches, Uhuru Gardens is set to host a vibrant festival and a moment of cultural significance. For Nairobi, it's a chance to honour history and embrace harmony.
+              </p>
+
+            </div>
+          </div>
+        </article>
+
+      </main>
+
+      <!-- ── Footer ── -->
+      <footer class="bg-ink py-20 text-parchment">
+        <div class="mx-auto w-full max-w-7xl px-6">
+          <div
+            class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <div class="lg:col-span-2">
+              <h2 class="mb-6 font-serif text-3xl">Ambati Elizabeth</h2>
+              <p class="mb-8 max-w-sm text-parchment/60">
+                Digital storyteller blending creativity with purpose. Digital
+                Marketing Lead and Beauty Therapist bringing ideas to life with
+                a human touch.
+              </p>
+              <div class="flex flex-wrap gap-6">
+                <a
+                  href="https://www.instagram.com/lizle_ftie?igsh=MTJycmoweGczNjk0dA=="
+                  aria-label="Instagram"
+                  class="transition-colors hover:text-tan"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Navigation</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a class="transition-colors hover:text-tan" href="photography.html">Photography</a>
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="videography.html">Videography</a>
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="writing.html">Writing</a>
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="mini-bits.html">Mini-bits</a>
+                </li>
+                <li>
+                  <a class="transition-colors hover:text-tan" href="about.html">About</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-6 text-label text-tan">Connect</h4>
+              <ul class="space-y-4 text-caption">
+                <li>
+                  <a
+                    href="https://www.instagram.com/lizle_ftie?igsh=MTJycmoweGczNjk0dA=="
+                    class="transition-colors hover:text-tan"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-between border-t border-parchment/10 pt-8 text-caption text-parchment/40 md:flex-row"
+          >
+            <p>© 2026 Ambati Elizabeth. All rights reserved.</p>
+            <p class="mt-4 md:mt-0">Built with intention in Nairobi.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Theme toggle script -->
+    <script>
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.documentElement;
+        const current = html.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+
+      document.getElementById("mobile-menu-btn").addEventListener("click", function () {
+        const menu = document.getElementById("mobile-menu");
+        const expanded = this.getAttribute("aria-expanded") === "true";
+        this.setAttribute("aria-expanded", String(!expanded));
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
